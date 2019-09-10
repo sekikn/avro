@@ -35,6 +35,10 @@ matrix:
   - os: windows
     language: bash
 
+cache:
+  directories:
+  - $HOME/.m2
+
 before_install: "if [ -x ./.travis/before_install.sh   ] ; then ./.travis/before_install.sh ; fi"
 install:        "if [ -x ./.travis/install.sh          ] ; then ./.travis/install.sh        ; fi"
 before_script:  "if [ -x ./.travis/before_script.sh    ] ; then ./.travis/before_script.sh  ; fi"
