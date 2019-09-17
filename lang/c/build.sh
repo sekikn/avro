@@ -45,14 +45,18 @@ function clean {
 case "$1" in
 
   interop-data-generate)
-    prepare_build
-    make -C $build_dir
+    if [ "$2" != --skip-build ] || [ ! -x $build_dir/tests/generate_interop_data ]; then
+      prepare_build
+      make -C $build_dir
+    fi
     $build_dir/tests/generate_interop_data "../../share/test/schemas/interop.avsc"  "../../build/interop/data"
     ;;
 
   interop-data-test)
-    prepare_build
-    make -C $build_dir
+    if [ "$2" != --skip-build ] || [ ! -x $build_dir/tests/test_interop_data ]; then
+      prepare_build
+      make -C $build_dir
+    fi
     $build_dir/tests/test_interop_data "../../build/interop/data"
     ;;
 
