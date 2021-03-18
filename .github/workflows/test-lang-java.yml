@@ -110,7 +110,7 @@ jobs:
         run: mvn -B -P interop-data-generate generate-resources
 
       - name: Generate Interop Data using Python
-        working-directory: lang/java/py
+        working-directory: lang/py
         run: ./build.sh interop-data-generate
 
       - name: Run Interop Tests
